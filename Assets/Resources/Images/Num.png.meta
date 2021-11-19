@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: 080e8ef98be29b44ba8fc70018f24f2a
+timeCreated: 1520318664
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: large_card_num_0
+    21300002: large_card_num_1
+    21300004: large_card_num_2
+    21300006: large_card_num_3
+    21300008: large_card_num_4
+    21300010: large_card_num_5
+    21300012: large_card_num_6
+    21300014: large_card_num_7
+    21300016: large_card_num_8
+    21300018: large_card_num_9
+    21300020: large_card_num_10
+    21300022: large_card_num_11
+    21300024: large_card_num_12
+    21300026: large_card_num_13
+    21300028: large_card_num_14
+    21300030: large_card_num_15
+    21300032: large_card_num_16
+    21300034: large_card_num_17
+    21300036: large_card_num_18
+    21300038: large_card_num_19
+    21300040: large_card_num_20
+    21300042: large_card_num_21
+    21300044: large_card_num_22
+    21300046: large_card_num_23
+    21300048: large_card_num_24
+    21300050: large_card_num_25
+    21300052: large_card_num_26
+    21300054: large_card_num_27
+    21300056: large_card_num_28
+    21300058: large_card_num_29
+    21300060: large_card_num_30
+    21300062: large_card_num_31
+    21300064: large_card_num_32
+    21300066: large_card_num_33
+    21300068: large_card_num_34
+    21300070: large_card_num_35
+    21300072: large_card_num_36
+    21300074: large_card_num_37
+    21300076: large_card_num_38
+    21300078: large_card_num_39
+    21300080: large_card_num_40
+    21300082: large_card_num_41
+    21300084: Num_1
+    21300086: Num_2
+    21300088: Num_3
+    21300090: Num_4
+    21300092: Num_5
+    21300094: Num_6
+    21300096: Num_7
+    21300098: Num_8
+    21300100: Num_9
+    21300102: Num_10
+    21300104: Num_10
+    21300106: Num_11
+    21300108: Num_12
+    21300110: Num_13
+    21300112: Num_14
+    21300114: Num_15
+    21300116: Num_16
+    21300118: Num_17
+    21300120: Num_18
+    21300122: Num_19
+    21300124: Num_20
+    21300126: Num_21
+    21300128: Num_22
+    21300130: Num_23
+    21300132: Num_24
+    21300134: Num_25
+    21300136: Num_26
+    21300138: Num_27
+    21300140: Num_28
+    21300142: Num_29
+    21300144: Num_30
+    21300146: Num_31
+    21300148: Num_32
+    21300150: Num_33
+    21300152: Num_34
+    21300154: Num_35
+    21300156: Num_36
+    21300158: Num_37
+    21300160: Num_38
+    21300162: Num_39
+    21300164: Num_40
+    21300166: Num_41
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Num_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 94
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 94
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 93
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_4
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 94
+        width: 28
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_5
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 93
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_6
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 93
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_7
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 94
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_8
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 93
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_9
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 93
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_10
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 94
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_11
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 93
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_12
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 92
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Num_13
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 93
+        width: 29
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
