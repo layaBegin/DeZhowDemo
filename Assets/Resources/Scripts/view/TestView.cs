@@ -1,31 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TestView : MonoBehaviour {
 
     
 	// Use this for initialization
 	void Start () {
+        int count = 0;
+        List<List<int>> list = DZGameLogic.Instance.getCombinationFlagArrs(7,5);
+        for (int i = 0; i < list.Count;i++)
+        {
+            List<int> item = list[i];
+            string s = "";
+            for (int j = 0;j < item.Count;j++)
+            {
+                s += item[j];
+            }
+            Debug.Log("item:" + s);
+            count++;
 
-        int a11 = DZGameLogic.Instance.CARD_DATA_ARRAY[11];
-        int a30 = DZGameLogic.Instance.CARD_DATA_ARRAY[30];
-        Debug.Log("===a11:" + a11);
-        Debug.Log("===a30:" + a30);
-        Debug.Log("===a30:" + DZGameLogic.Instance.getCardValue(a30));
-        Debug.Log("===a30 color:" + DZGameLogic.Instance.getCardColor(a30));
+        }
+        Debug.Log("count:"+count);
 
-        int a35 = DZGameLogic.Instance.CARD_DATA_ARRAY[35];
-        Debug.Log("===a35:" + DZGameLogic.Instance.getCardValue(a35));
-        Debug.Log("===a35 color:" + DZGameLogic.Instance.getCardColor(a35));
-        int a45 = DZGameLogic.Instance.CARD_DATA_ARRAY[45];
-        Debug.Log("===a45:" + DZGameLogic.Instance.getCardValue(a45));
-        Debug.Log("===a45 color:" + DZGameLogic.Instance.getCardColor(a45));
-
-        DZGameLogic.Instance.test1();
+        //DZGameLogic.Instance.test1();
     }
 
     // Update is called once per frame
     void Update () {
 	
 	}
+
+
 }
