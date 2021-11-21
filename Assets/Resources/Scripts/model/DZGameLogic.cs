@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public enum cardType
+public enum CardType
 {
+    None = -1, //High Card
     SINGLE = 1, //High Card
     ONE_DOUBLE = 2, //One Pair
     TWO_DOUBLE = 3, //Two Pairs
@@ -64,16 +65,7 @@ public class DZGameLogic
         return (cardValue == 1) ? (cardValue + 13) : cardValue;
     }
 
-    public void test1()
-    {
-        List<int> arr = sortCardList(new int[] { 8, 3, 5 });
-       
-        foreach (var item in arr)
-        {
-            Debug.Log("item:"+item);
-        }
-        Debug.Log("List arr:" + arr.ToArray().ToString());
-    }
+   
 
     // 洗牌
     public int[] getRandCardList()
@@ -101,14 +93,18 @@ public class DZGameLogic
 
 
     //倒序排序扑克
-    public List<int> sortCardList(int[] cardDataArr)
+    private void sortCardList(List<int> cardDataArr)
     {
-        List<int> arr = cardDataArr.ToList();
-        arr.Sort((a, b) =>
+        cardDataArr.Sort((a, b) =>
         {
-            return b - a;
+            int aLogicValue = this.getCardLogicValue(a);
+            int bLogicValue = this.getCardLogicValue(b);
+            if (aLogicValue != bLogicValue) return bLogicValue - aLogicValue;
+            else
+            {
+                return b - a;
+            }
         });
-        return arr;
         
     }
 
@@ -117,7 +113,7 @@ public class DZGameLogic
     /**
     * 获得从m中取n的所有组合
      */
-    public List<List<int>> getCombinationFlagArrs(int m, int n)
+    private List<List<int>> getCombinationFlagArrs(int m, int n)
     {
         if (n < 1 || m < n || m == n)
         {
@@ -172,9 +168,11 @@ public class DZGameLogic
     }
 
 
-    //分析扑克
-    public Dictionary<string,object> analyseCardData(int[] cardDataArr)
+    //分析扑克，前提是A 必须以14   传入
+    private Dictionary<string,object> analyseCardData(List<int> cardDataArr)
     {
+        //先倒序排列
+        sortCardList(cardDataArr);
         object a = new object();
         Dictionary<string, object> result = new Dictionary<string, object>();
        
@@ -189,15 +187,15 @@ public class DZGameLogic
         List<int> fourLogicValue = new List<int>();
        
         //扑克分析
-        for (int i = 0; i< cardDataArr.Length; i++){
+        for (int i = 0; i< cardDataArr.Count; i++){
             //变量定义
             int sameCount = 1;
             int[] sameCardData = new int[] { cardDataArr[i], 0, 0, 0 };
             int logicValue = this.getCardLogicValue(cardDataArr[i]);
             //获取同牌
-            for (int j = i+1; j<cardDataArr.Length; j++){
+            for (int j = i+1; j<cardDataArr.Count; j++){
                 //逻辑对比
-                if (this.getCardLogicValue(cardDataArr[j])!= logicValue) break;
+                if (this.getCardLogicValue(cardDataArr[j])!= logicValue) continue;
                 //设置扑克
                 sameCardData[sameCount++]=cardDataArr[j];
             }
@@ -240,15 +238,17 @@ public class DZGameLogic
 
 
     //获取牌型
-    public cardType getCardType(int[] cardDataArr)
+    public CardType getCardType(List<int> cardDataArr)
     {
+        //先倒序排列
+        sortCardList(cardDataArr);
         bool isSameColor = true;
         bool isLineCard = true;
         int firstColor = this.getCardColor(cardDataArr[0]);
         int firstValue = this.getCardLogicValue(cardDataArr[0]);
 
         //牌形分析
-        for (int i = 1; i < cardDataArr.Length; i++)
+        for (int i = 1; i < cardDataArr.Count; i++)
         {
             //数据分析
             if (isSameColor && (this.getCardColor(cardDataArr[i]) != firstColor)) isSameColor = false;
@@ -260,33 +260,261 @@ public class DZGameLogic
         //最小同花顺 [14,5,4,3,2] =12345 
         if (!isLineCard && (firstValue == 14))
         {
-            for (int i = 1; i < cardDataArr.Length; i++)
+            for (int i = 1; i < cardDataArr.Count; i++)
             {
                 int logicValue = this.getCardLogicValue(cardDataArr[i]);
                 if ((firstValue != (logicValue + i + 8))) break;
-                if (i == cardDataArr.Length - 1) isLineCard = true;
+                if (i == cardDataArr.Count - 1) isLineCard = true;
             }
         }
 
         //皇家同花顺
-        if (isSameColor && isLineCard && (this.getCardLogicValue(cardDataArr[1]) === 13)) return gameProto.cardType.KING_TONG_HUA_SHUN;
+        if (isSameColor && isLineCard && (this.getCardLogicValue(cardDataArr[1]) == 13))
+            return CardType.KING_TONG_HUA_SHUN;
         //顺子类型
-        if (!isSameColor && isLineCard) return cardType.SHUN_ZI;
+        if (!isSameColor && isLineCard) return CardType.SHUN_ZI;
         //同花类型
-        if (isSameColor && !isLineCard) return cardType.TONG_HUA;
+        if (isSameColor && !isLineCard) return CardType.TONG_HUA;
         //同花顺类型
-        if (isSameColor && isLineCard) return cardType.TONG_HUA_SHUN;
+        if (isSameColor && isLineCard) return CardType.TONG_HUA_SHUN;
         //扑克分析
         Dictionary<string,object> analyseResult = this.analyseCardData(cardDataArr);
 
         //类型判断
-        if ((int)analyseResult["fourCount"] == 1) return cardType.TIE_ZHI;
-        if ((int)analyseResult["doubleCount"] == 2) return cardType.TWO_DOUBLE;
-        if (((int)analyseResult["doubleCount"] == 1) && ((int)analyseResult["threeCount"] == 1)) return cardType.HU_LU;
-        if (((int)analyseResult["threeCount"] == 1) && ((int)analyseResult["doubleCount"] == 0)) return cardType.THREE;
-        if (((int)analyseResult["doubleCount"] == 1) && ((int)analyseResult["singleCount"] == 3)) return cardType.ONE_DOUBLE;
-        return cardType.SINGLE;
+        if ((int)analyseResult["fourCount"] == 1) return CardType.TIE_ZHI;
+        if ((int)analyseResult["doubleCount"] == 2) return CardType.TWO_DOUBLE;
+        if (((int)analyseResult["doubleCount"] == 1) && ((int)analyseResult["threeCount"] == 1)) return CardType.HU_LU;
+        if (((int)analyseResult["threeCount"] == 1) && ((int)analyseResult["doubleCount"] == 0)) return CardType.THREE;
+        if (((int)analyseResult["doubleCount"] == 1) && ((int)analyseResult["singleCount"] == 3)) return CardType.ONE_DOUBLE;
+        return CardType.SINGLE;
     }
 
+
+    /*对比牌型
+     * 返回值 2 ，玩家1获胜；1，玩家2获胜；0，平局
+     */
+    public int compareCard(List<int> firstDataArr,List<int> nextDataArr)
+    {
+        if (firstDataArr.Count != nextDataArr.Count)
+        {
+            Debug.Log("compareCard err: card count err");
+            return 0;
+        }
+        sortCardList(firstDataArr);
+        sortCardList(nextDataArr);
+        //获取类型
+        CardType nextType = this.getCardType(nextDataArr);
+        CardType firstType = this.getCardType(firstDataArr);
+        //类型判断
+        //大
+        Debug.Log("firstType:" + firstType);
+        Debug.Log("nextType:" + nextType);
+        if (firstType > nextType) return 2;
+        //小
+        if (firstType < nextType) return 1;
+        //简单类型
+        switch (firstType)
+        {
+            case CardType.SINGLE:
+                {
+                    for (int i = 0; i < firstDataArr.Count; i++)
+                    {
+                        int nextValue = this.getCardLogicValue(nextDataArr[i]);
+                        int firstValue = this.getCardLogicValue(firstDataArr[i]);
+                        // 大
+                        if (firstValue > nextValue) return 2;
+                        // 小
+                        else if (firstValue < nextValue) return 1;
+                        // 平
+                        else if (i == firstDataArr.Count - 1) return 0;
+                    }
+                    break;
+                }
+            case CardType.ONE_DOUBLE:
+            case CardType.TWO_DOUBLE:
+            case CardType.THREE:
+            case CardType.TIE_ZHI:
+            case CardType.HU_LU:
+                {
+                    //分析扑克
+                    Dictionary<string,object> analyseResultNext = this.analyseCardData(nextDataArr);
+                    Dictionary<string, object> analyseResultFirst = this.analyseCardData(firstDataArr);
+
+                    int nextsingleCount = (int)analyseResultNext["singleCount"];
+                    int nextdoubleCount = (int)analyseResultNext["doubleCount"];
+                    int nextthreeCount = (int)analyseResultNext["threeCount"];
+                    int nextfourCount = (int)analyseResultNext["fourCount"];
+                    List<int> nextsingleLogicValue = (List<int>)analyseResultNext["singleLogicValue"];
+                    List<int> nextdoubleLogicValue = (List<int>)analyseResultNext["doubleLogicValue"];
+                    List<int> nextthreeLogicValue = (List<int>)analyseResultNext["threeLogicValue"];
+                    List<int> nextfourLogicValue = (List<int>)analyseResultNext["fourLogicValue"];
+
+                    int firstsingleCount = (int)analyseResultFirst["singleCount"];
+                    int firstdoubleCount = (int)analyseResultFirst["doubleCount"];
+                    int firstthreeCount = (int)analyseResultFirst["threeCount"];
+                    int firstfourCount = (int)analyseResultFirst["fourCount"];
+                    List<int> firstsingleLogicValue = (List<int>)analyseResultFirst["singleLogicValue"];
+                    List<int> firstdoubleLogicValue = (List<int>)analyseResultFirst["doubleLogicValue"];
+                    List<int> firstthreeLogicValue = (List<int>)analyseResultFirst["threeLogicValue"];
+                    List<int> firstfourLogicValue = (List<int>)analyseResultFirst["fourLogicValue"];
+                    //四条数值
+                    if ((int)analyseResultFirst["fourCount"] > 0)
+                    {
+                        int nextValue = nextfourLogicValue[0];
+                        int firstValue = firstfourLogicValue[0];
+                        //比较四条
+                        if (firstValue != nextValue) return (firstValue > nextValue) ? 2 : 1;
+                        //比较单牌
+                        firstValue = firstsingleLogicValue[0];
+                        nextValue = nextsingleLogicValue[0];
+                        if (firstValue != nextValue) return (firstValue > nextValue) ? 2 : 1;
+                        else return 0;
+                    }
+                    //三条数值
+                    if ((int)analyseResultFirst["threeCount"] > 0)
+                    {
+                        int nextValue = nextthreeLogicValue[0] ;
+                        int firstValue = firstthreeLogicValue[0];
+                        //比较三条
+                        if (firstValue != nextValue) return (firstValue > nextValue) ? 2 : 1;
+                        //葫芦牌型
+                        if (CardType.HU_LU == firstType)
+                        {
+                            //比较对牌
+                            firstValue = firstdoubleLogicValue[0];
+                            nextValue = nextdoubleLogicValue[0] ;
+                            if (firstValue != nextValue) return (firstValue > nextValue) ? 2 : 1;
+                            else return 0;
+                        }
+                        else
+                        {
+                            //散牌数值
+                            for (int i = 0; i < firstsingleLogicValue.Count; i++)
+                            {
+                                int nextV = nextsingleLogicValue[i];
+                                int firstV = firstsingleLogicValue[i];
+                                //大
+                                if (firstV > nextV) return 2;
+                                //小
+                                else if (firstValue < nextValue) return 1;
+                                //等
+                                else if (i == (firstsingleCount - 1)) return 0;
+                            }
+                        }
+                    }
+
+                    //对子数值
+                    for (int i = 0; i < firstdoubleCount; i++)
+                    {
+                        int nextValue = nextdoubleLogicValue[i];
+                        int firstValue = firstdoubleLogicValue[i];
+                        //大
+                        if (firstValue > nextValue) return 2;
+                        //小
+                        else if (firstValue < nextValue) return 1;
+                    }
+
+                    //比较单牌
+                    {
+                        //散牌数值
+                        for (int i = 0; i < firstsingleCount; i++)
+                        {
+                            int nextValue = nextsingleLogicValue[i];
+                            int firstValue = firstsingleLogicValue[i];
+                            // 大
+                            if (firstValue > nextValue) return 2;
+                            // 小
+                            else if (firstValue < nextValue) return 1;
+                            // 等
+                            else if (i == firstsingleCount - 1) return 0;
+                        }
+                    }
+                    break;
+                }
+            case CardType.SHUN_ZI:
+            case CardType.TONG_HUA_SHUN:
+                {
+                    // 数值判断
+                    int nextValue = this.getCardLogicValue(nextDataArr[0]);
+                    int firstValue = this.getCardLogicValue(firstDataArr[0]);
+
+                    bool isFirstmin = (firstValue == (this.getCardLogicValue(firstDataArr[1]) + 9));
+                    bool isNextmin = (nextValue == (this.getCardLogicValue(nextDataArr[1]) + 9));
+
+                    //大小顺子
+                    if (isFirstmin && !isNextmin) return 1;
+                    //大小顺子
+                    else if (!isFirstmin && isNextmin) return 2;
+                    //等同顺子
+                    else
+                    {
+                        //平
+                        if (firstValue == nextValue) return 0;
+                        return (firstValue > nextValue) ? 2 : 1;
+                    }
+                    break;
+                }
+            case CardType.TONG_HUA:
+                {
+                    //散牌数值
+                    for (int i = 0; i < firstDataArr.Count; i++)
+                    {
+                        int nextValue = this.getCardLogicValue(nextDataArr[i]);
+                        int firstValue = this.getCardLogicValue(firstDataArr[i]);
+                        // 大
+                        if (firstValue > nextValue) return 2;
+                        // 小
+                        else if (firstValue < nextValue) return 1;
+                        // 平
+                        else if (i == firstDataArr.Count - 1) return 0;
+                    }
+                    break;
+                }
+        }
+        return 0;
+    }
+
+    //最大牌型
+    public List<int> fiveFromSeven(List<int> handCardDataArr, List<int> centerCardDataArr)
+    {
+        List<int> tempCardDataArr = handCardDataArr.Concat(centerCardDataArr).ToList();
+        if (tempCardDataArr.Count < 5)
+        {
+            return null;
+        }
+        //排列扑克
+        this.sortCardList(tempCardDataArr);
+
+        // 获取组合index
+        List<List<int>> combinationFlagArrs = this.getCombinationFlagArrs(tempCardDataArr.Count, 5);
+        // 检索最大组合
+        CardType maxCardType = CardType.None;
+        List<int> maxCardDataArr = new List<int>();
+        for (int i = 0; i < combinationFlagArrs.Count; ++i)
+        {
+            List<int> arr = combinationFlagArrs[i];
+            List<int> cardData = new List<int>();
+            for (int j = 0; j < arr.Count; ++j)
+            {
+                if (arr[j] <= 0) continue;
+                cardData.Add(tempCardDataArr[j]);
+            }
+            CardType cardT = this.getCardType(cardData);
+            if (maxCardType < cardT)
+            {
+                maxCardType = cardT;
+                maxCardDataArr = cardData;
+            }
+            else if (maxCardType == cardT)
+            {
+                if (this.compareCard(cardData, maxCardDataArr) == 2)
+                {
+                    maxCardType = cardT;
+                    maxCardDataArr = cardData;
+                }
+            }
+        }
+        return maxCardDataArr;
+    }
 }
 

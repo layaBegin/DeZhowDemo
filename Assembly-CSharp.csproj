@@ -76,6 +76,8 @@
      <Compile Include="Assets\Resources\Scripts\V\PlayCardDisplay.cs" />
      <Compile Include="Assets\Resources\Scripts\model\CardData1.cs" />
      <Compile Include="Assets\Resources\Scripts\model\DZGameLogic.cs" />
+     <Compile Include="Assets\Resources\Scripts\model\TestModel.cs" />
+     <Compile Include="Assets\Resources\Scripts\view\CardItem.cs" />
      <Compile Include="Assets\Resources\Scripts\view\TestView.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
