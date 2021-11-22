@@ -45,35 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ChengXu\ChuPie.cs" />
-     <Compile Include="Assets\ChengXu\DiZhuPai.cs" />
-     <Compile Include="Assets\ChengXu\HandCard.cs" />
-     <Compile Include="Assets\ChengXu\HuaiDang.cs" />
-     <Compile Include="Assets\ChengXu\JingHuoAnNu.cs" />
-     <Compile Include="Assets\ChengXu\ShengChengPai.cs" />
-     <Compile Include="Assets\ChengXu\TiShiNangNun.cs" />
-     <Compile Include="Assets\ChengXu\XingShiKuang.cs" />
-     <Compile Include="Assets\GuoChangJIngChengXing\GuoChangJing.cs" />
-     <Compile Include="Assets\GuoChangJIngChengXing\ZhuChangJibng.cs" />
-     <Compile Include="Assets\Resources\Scripts\C\CardCreator.cs" />
-     <Compile Include="Assets\Resources\Scripts\C\CardViewCreator.cs" />
-     <Compile Include="Assets\Resources\Scripts\C\GameControl.cs" />
-     <Compile Include="Assets\Resources\Scripts\C\HandCardControl.cs" />
-     <Compile Include="Assets\Resources\Scripts\C\UserDataControl.cs" />
-     <Compile Include="Assets\Resources\Scripts\GlobalData.cs" />
-     <Compile Include="Assets\Resources\Scripts\GlobalSetting.cs" />
-     <Compile Include="Assets\Resources\Scripts\M\CardData.cs" />
-     <Compile Include="Assets\Resources\Scripts\M\CardViewData.cs" />
-     <Compile Include="Assets\Resources\Scripts\M\GameData.cs" />
-     <Compile Include="Assets\Resources\Scripts\M\HandCardData.cs" />
-     <Compile Include="Assets\Resources\Scripts\M\PlayCardData.cs" />
-     <Compile Include="Assets\Resources\Scripts\Test.cs" />
-     <Compile Include="Assets\Resources\Scripts\TypeChecker.cs" />
-     <Compile Include="Assets\Resources\Scripts\V\BotView.cs" />
-     <Compile Include="Assets\Resources\Scripts\V\CardView.cs" />
-     <Compile Include="Assets\Resources\Scripts\V\HandCardFuncView.cs" />
-     <Compile Include="Assets\Resources\Scripts\V\HandCardView.cs" />
-     <Compile Include="Assets\Resources\Scripts\V\PlayCardDisplay.cs" />
      <Compile Include="Assets\Resources\Scripts\model\CardData1.cs" />
      <Compile Include="Assets\Resources\Scripts\model\DZGameLogic.cs" />
      <Compile Include="Assets\Resources\Scripts\model\TestModel.cs" />
