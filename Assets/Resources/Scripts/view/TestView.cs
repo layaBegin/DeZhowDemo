@@ -28,7 +28,7 @@ public class TestView : MonoBehaviour {
 
     void Awake()
     {
-        this._setCardActice(false);
+        //this._setCardActice(false);
     }
     // Use this for initialization
     void Start() {
@@ -44,15 +44,18 @@ public class TestView : MonoBehaviour {
     void onBtnAgain()
     {
         Debug.Log("===进入Btn回调");
-        this._setCardActice(true);
+
+        //this._setCardActice(true);
+        DelayFunc();
         //Invoke("DelayFunc", 1);
-        StartCoroutine(ShowA());
+        //StartCoroutine(ShowA());
         Debug.Log("After StartCoroutine");
     }
 
     private IEnumerator ShowA()
     {
-        yield return new WaitForSeconds(1);
+        yield return null;
+        //yield return new WaitForSeconds(1);
         DelayFunc();
     }
 
@@ -72,7 +75,7 @@ public class TestView : MonoBehaviour {
 
     void DelayFunc()
     {
-        this._setCardActice(true);
+        //this._setCardActice(true);
         int[] cardList = DZGameLogic.Instance.getRandCardList();
 
         int[] cardDataCommon = new int[] { cardList[0], cardList[1], cardList[2], cardList[3], cardList[4] };
