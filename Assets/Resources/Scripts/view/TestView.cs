@@ -26,6 +26,28 @@ public class TestView : MonoBehaviour {
     private Color colorRed = new Color(255,0,0);
     private Color colorBlack = new Color(0,0,0);
 
+
+//     public enum CardType
+// {
+//     None = -1, //High Card
+//     SINGLE = 1, //High Card
+//     ONE_DOUBLE = 2, //One Pair
+//     TWO_DOUBLE = 3, //Two Pairs
+//     THREE = 4, //Three of a Kind
+//     SHUN_ZI = 5, //Straight
+//     HU_LU = 6, //Full House
+//     TONG_HUA = 7, //Flush
+//     TIE_ZHI = 8, //Four of a Kind
+//     TONG_HUA_SHUN = 9, //Straight Flush
+//     KING_TONG_HUA_SHUN = 10 //Royal Flush
+// };
+
+    private List<string> cardTypeText = new List<string>(){"None",
+        "High Card","One Pair","Two Pairs",
+        "Three of a Kind","Straight","Full House",
+        "Flush","Four of a Kind","Straight Flush",
+        "Royal Flush"};
+
     void Awake()
     {
         //this._setCardActice(false);
@@ -38,7 +60,45 @@ public class TestView : MonoBehaviour {
         this.btnAgain.onClick.AddListener(onBtnAgain);
     }
 
+    private string getTypeText(int num){
+        string str = "";
+        switch(num){
+            case 1:
+                str = "High Card";
+                break;
+            case 2:
+                str = "One Pair";
+                break;
+            case 3:
+                str = "High Card";
+                break;
+            case 4:
+                str = "High Card";
+                break;
+            case 5:
+                str = "High Card";
+                break;
+            case 6:
+                str = "High Card";
+                break;
+            case 7:
+                str = "High Card";
+                break;
+            case 8:
+                str = "High Card";
+                break;
+            case 9:
+                str = "High Card";
+                break;
+            case 10:
+                str = "High Card";
+                break;
+            default:
+                break;
+        }
+        return str;
 
+    }
    
 
     void onBtnAgain()
@@ -73,6 +133,10 @@ public class TestView : MonoBehaviour {
         }
     }
 
+
+
+    
+
     void DelayFunc()
     {
         //this._setCardActice(true);
@@ -98,8 +162,8 @@ public class TestView : MonoBehaviour {
 
         CardType cardType1 = DZGameLogic.Instance.getCardType(fiveCardData1);
         CardType cardType2 = DZGameLogic.Instance.getCardType(fiveCardData2);
-        text1Type.text = cardType1.ToString();
-        text2Type.text = cardType2.ToString();
+        text1Type.text = cardTypeText[(int)cardType1];
+        text2Type.text = cardTypeText[(int)cardType2];
         int winNum = DZGameLogic.Instance.compareCard(fiveCardData1, fiveCardData2);
 
         if (winNum == 2)

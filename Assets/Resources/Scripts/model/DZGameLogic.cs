@@ -5,7 +5,7 @@ using System.Linq;
 
 public enum CardType
 {
-    None = -1, //High Card
+    None = 0, //High Card
     SINGLE = 1, //High Card
     ONE_DOUBLE = 2, //One Pair
     TWO_DOUBLE = 3, //Two Pairs
@@ -17,6 +17,8 @@ public enum CardType
     TONG_HUA_SHUN = 9, //Straight Flush
     KING_TONG_HUA_SHUN = 10 //Royal Flush
 };
+
+
 
 public class DZGameLogic
 {
