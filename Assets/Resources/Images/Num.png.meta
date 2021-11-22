@@ -1,101 +1,270 @@
 fileFormatVersion: 2
 guid: 080e8ef98be29b44ba8fc70018f24f2a
-timeCreated: 1520318664
-licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: large_card_num_0
-    21300002: large_card_num_1
-    21300004: large_card_num_2
-    21300006: large_card_num_3
-    21300008: large_card_num_4
-    21300010: large_card_num_5
-    21300012: large_card_num_6
-    21300014: large_card_num_7
-    21300016: large_card_num_8
-    21300018: large_card_num_9
-    21300020: large_card_num_10
-    21300022: large_card_num_11
-    21300024: large_card_num_12
-    21300026: large_card_num_13
-    21300028: large_card_num_14
-    21300030: large_card_num_15
-    21300032: large_card_num_16
-    21300034: large_card_num_17
-    21300036: large_card_num_18
-    21300038: large_card_num_19
-    21300040: large_card_num_20
-    21300042: large_card_num_21
-    21300044: large_card_num_22
-    21300046: large_card_num_23
-    21300048: large_card_num_24
-    21300050: large_card_num_25
-    21300052: large_card_num_26
-    21300054: large_card_num_27
-    21300056: large_card_num_28
-    21300058: large_card_num_29
-    21300060: large_card_num_30
-    21300062: large_card_num_31
-    21300064: large_card_num_32
-    21300066: large_card_num_33
-    21300068: large_card_num_34
-    21300070: large_card_num_35
-    21300072: large_card_num_36
-    21300074: large_card_num_37
-    21300076: large_card_num_38
-    21300078: large_card_num_39
-    21300080: large_card_num_40
-    21300082: large_card_num_41
-    21300084: Num_1
-    21300086: Num_2
-    21300088: Num_3
-    21300090: Num_4
-    21300092: Num_5
-    21300094: Num_6
-    21300096: Num_7
-    21300098: Num_8
-    21300100: Num_9
-    21300102: Num_10
-    21300104: Num_10
-    21300106: Num_11
-    21300108: Num_12
-    21300110: Num_13
-    21300112: Num_14
-    21300114: Num_15
-    21300116: Num_16
-    21300118: Num_17
-    21300120: Num_18
-    21300122: Num_19
-    21300124: Num_20
-    21300126: Num_21
-    21300128: Num_22
-    21300130: Num_23
-    21300132: Num_24
-    21300134: Num_25
-    21300136: Num_26
-    21300138: Num_27
-    21300140: Num_28
-    21300142: Num_29
-    21300144: Num_30
-    21300146: Num_31
-    21300148: Num_32
-    21300150: Num_33
-    21300152: Num_34
-    21300154: Num_35
-    21300156: Num_36
-    21300158: Num_37
-    21300160: Num_38
-    21300162: Num_39
-    21300164: Num_40
-    21300166: Num_41
-  serializedVersion: 2
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: large_card_num_0
+  - first:
+      213: 21300002
+    second: large_card_num_1
+  - first:
+      213: 21300004
+    second: large_card_num_2
+  - first:
+      213: 21300006
+    second: large_card_num_3
+  - first:
+      213: 21300008
+    second: large_card_num_4
+  - first:
+      213: 21300010
+    second: large_card_num_5
+  - first:
+      213: 21300012
+    second: large_card_num_6
+  - first:
+      213: 21300014
+    second: large_card_num_7
+  - first:
+      213: 21300016
+    second: large_card_num_8
+  - first:
+      213: 21300018
+    second: large_card_num_9
+  - first:
+      213: 21300020
+    second: large_card_num_10
+  - first:
+      213: 21300022
+    second: large_card_num_11
+  - first:
+      213: 21300024
+    second: large_card_num_12
+  - first:
+      213: 21300026
+    second: large_card_num_13
+  - first:
+      213: 21300028
+    second: large_card_num_14
+  - first:
+      213: 21300030
+    second: large_card_num_15
+  - first:
+      213: 21300032
+    second: large_card_num_16
+  - first:
+      213: 21300034
+    second: large_card_num_17
+  - first:
+      213: 21300036
+    second: large_card_num_18
+  - first:
+      213: 21300038
+    second: large_card_num_19
+  - first:
+      213: 21300040
+    second: large_card_num_20
+  - first:
+      213: 21300042
+    second: large_card_num_21
+  - first:
+      213: 21300044
+    second: large_card_num_22
+  - first:
+      213: 21300046
+    second: large_card_num_23
+  - first:
+      213: 21300048
+    second: large_card_num_24
+  - first:
+      213: 21300050
+    second: large_card_num_25
+  - first:
+      213: 21300052
+    second: large_card_num_26
+  - first:
+      213: 21300054
+    second: large_card_num_27
+  - first:
+      213: 21300056
+    second: large_card_num_28
+  - first:
+      213: 21300058
+    second: large_card_num_29
+  - first:
+      213: 21300060
+    second: large_card_num_30
+  - first:
+      213: 21300062
+    second: large_card_num_31
+  - first:
+      213: 21300064
+    second: large_card_num_32
+  - first:
+      213: 21300066
+    second: large_card_num_33
+  - first:
+      213: 21300068
+    second: large_card_num_34
+  - first:
+      213: 21300070
+    second: large_card_num_35
+  - first:
+      213: 21300072
+    second: large_card_num_36
+  - first:
+      213: 21300074
+    second: large_card_num_37
+  - first:
+      213: 21300076
+    second: large_card_num_38
+  - first:
+      213: 21300078
+    second: large_card_num_39
+  - first:
+      213: 21300080
+    second: large_card_num_40
+  - first:
+      213: 21300082
+    second: large_card_num_41
+  - first:
+      213: 21300084
+    second: Num_1
+  - first:
+      213: 21300086
+    second: Num_2
+  - first:
+      213: 21300088
+    second: Num_3
+  - first:
+      213: 21300090
+    second: Num_4
+  - first:
+      213: 21300092
+    second: Num_5
+  - first:
+      213: 21300094
+    second: Num_6
+  - first:
+      213: 21300096
+    second: Num_7
+  - first:
+      213: 21300098
+    second: Num_8
+  - first:
+      213: 21300100
+    second: Num_9
+  - first:
+      213: 21300102
+    second: Num_10
+  - first:
+      213: 21300104
+    second: Num_10
+  - first:
+      213: 21300106
+    second: Num_11
+  - first:
+      213: 21300108
+    second: Num_12
+  - first:
+      213: 21300110
+    second: Num_13
+  - first:
+      213: 21300112
+    second: Num_14
+  - first:
+      213: 21300114
+    second: Num_15
+  - first:
+      213: 21300116
+    second: Num_16
+  - first:
+      213: 21300118
+    second: Num_17
+  - first:
+      213: 21300120
+    second: Num_18
+  - first:
+      213: 21300122
+    second: Num_19
+  - first:
+      213: 21300124
+    second: Num_20
+  - first:
+      213: 21300126
+    second: Num_21
+  - first:
+      213: 21300128
+    second: Num_22
+  - first:
+      213: 21300130
+    second: Num_23
+  - first:
+      213: 21300132
+    second: Num_24
+  - first:
+      213: 21300134
+    second: Num_25
+  - first:
+      213: 21300136
+    second: Num_26
+  - first:
+      213: 21300138
+    second: Num_27
+  - first:
+      213: 21300140
+    second: Num_28
+  - first:
+      213: 21300142
+    second: Num_29
+  - first:
+      213: 21300144
+    second: Num_30
+  - first:
+      213: 21300146
+    second: Num_31
+  - first:
+      213: 21300148
+    second: Num_32
+  - first:
+      213: 21300150
+    second: Num_33
+  - first:
+      213: 21300152
+    second: Num_34
+  - first:
+      213: 21300154
+    second: Num_35
+  - first:
+      213: 21300156
+    second: Num_36
+  - first:
+      213: 21300158
+    second: Num_37
+  - first:
+      213: 21300160
+    second: Num_38
+  - first:
+      213: 21300162
+    second: Num_39
+  - first:
+      213: 21300164
+    second: Num_40
+  - first:
+      213: 21300166
+    second: Num_41
+  externalObjects: {}
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -104,35 +273,60 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    serializedVersion: 2
+    filterMode: 1
     aniso: 16
-    mipBias: -1
-    wrapMode: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -148,7 +342,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_2
       rect:
@@ -161,7 +363,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_3
       rect:
@@ -174,7 +384,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_4
       rect:
@@ -187,7 +405,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_5
       rect:
@@ -200,7 +426,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_6
       rect:
@@ -213,7 +447,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_7
       rect:
@@ -226,7 +468,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_8
       rect:
@@ -239,7 +489,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_9
       rect:
@@ -252,7 +510,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_10
       rect:
@@ -265,7 +531,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_11
       rect:
@@ -278,7 +552,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_12
       rect:
@@ -291,7 +573,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Num_13
       rect:
@@ -304,9 +594,28 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

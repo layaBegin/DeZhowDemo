@@ -21,8 +21,8 @@ public class CardItem : MonoBehaviour {
 
     }
     void Start () {
-        imageNum = transform.FindChild("num").GetComponent<Image>();
-        imageColor = transform.FindChild("color").GetComponent<Image>();
+        imageNum = transform.Find("num").GetComponent<Image>();
+        imageColor = transform.Find("color").GetComponent<Image>();
 
     }
 	
