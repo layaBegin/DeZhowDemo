@@ -13,16 +13,19 @@ public class CardItem : MonoBehaviour {
 
     object[] spriteNums;
     object[] spriteColors;
+
+
+    
     void Awake()
     {
 
-        spriteNums = Resources.LoadAll("Images/Num");
-        
+        //spriteNums = Resources.LoadAll("Images/Num");
+        imageNum = transform.Find("num").GetComponent<Image>();
+        imageColor = transform.Find("color").GetComponent<Image>();
 
     }
     void Start () {
-        imageNum = transform.Find("num").GetComponent<Image>();
-        imageColor = transform.Find("color").GetComponent<Image>();
+        
 
     }
 	
@@ -45,15 +48,15 @@ public class CardItem : MonoBehaviour {
     {
         //Sprite sp = Resources.Load<Sprite>("Images/" + "Num_11");
 
-        Debug.Log("===imageNum:"+ imageNum);
-        Debug.Log("===imageColor:" + imageColor);
-        Debug.Log("===imageColor:" + imageColor);
+        
         //Sprite sp = (Sprite)spriteNums[1];
         //Sprite sp = (Sprite)spriteNums[1];
-        //Debug.Log("imageNum.sprite:" + imageNum.sprite);
-        Debug.Log("===sp:" + spriteNum);
+        
         imageNum.sprite = spriteNum;
         imageColor.sprite = spriteColor;
+        imageNum.color = color;
         imageColor.color = color;
+        this.transform.Find("back").gameObject.SetActive(false);
+        
     }
 }

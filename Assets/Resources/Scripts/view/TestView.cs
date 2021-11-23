@@ -27,20 +27,9 @@ public class TestView : MonoBehaviour {
     private Color colorBlack = new Color(0,0,0);
 
 
-//     public enum CardType
-// {
-//     None = -1, //High Card
-//     SINGLE = 1, //High Card
-//     ONE_DOUBLE = 2, //One Pair
-//     TWO_DOUBLE = 3, //Two Pairs
-//     THREE = 4, //Three of a Kind
-//     SHUN_ZI = 5, //Straight
-//     HU_LU = 6, //Full House
-//     TONG_HUA = 7, //Flush
-//     TIE_ZHI = 8, //Four of a Kind
-//     TONG_HUA_SHUN = 9, //Straight Flush
-//     KING_TONG_HUA_SHUN = 10 //Royal Flush
-// };
+    int[] cardData1;
+    int[] cardData2;
+    int[] cardDataCommon;
 
     private List<string> cardTypeText = new List<string>(){"None",
         "High Card","One Pair","Two Pairs",
@@ -55,8 +44,6 @@ public class TestView : MonoBehaviour {
     // Use this for initialization
     void Start() {
        
-        Debug.Log("==比较牌型：");
-
         this.btnAgain.onClick.AddListener(onBtnAgain);
     }
 
@@ -104,19 +91,40 @@ public class TestView : MonoBehaviour {
     void onBtnAgain()
     {
         Debug.Log("===进入Btn回调");
+        destroyCards();
 
         //this._setCardActice(true);
         DelayFunc();
         //Invoke("DelayFunc", 1);
         //StartCoroutine(ShowA());
-        Debug.Log("After StartCoroutine");
+    }
+
+
+    void destroyCards()
+    {
+        for (int i= 0;i < pos1.childCount;i++)
+        {
+            GameObject chid = pos1.GetChild(i).gameObject;
+            Destroy(chid);
+        }
+        for (int i = 0; i < pos2.childCount; i++)
+        {
+            
+            Destroy(pos2.GetChild(i).gameObject);
+        }
+        for (int i = 0; i < posCommon.childCount; i++)
+        {
+           
+            Destroy(posCommon.GetChild(i).gameObject);
+        }
+
     }
 
     private IEnumerator ShowA()
     {
         yield return null;
-        //yield return new WaitForSeconds(1);
-        DelayFunc();
+        yield return new WaitForSeconds(0.5f);
+        showCards();
     }
 
 
@@ -142,22 +150,74 @@ public class TestView : MonoBehaviour {
         //this._setCardActice(true);
         int[] cardList = DZGameLogic.Instance.getRandCardList();
 
-        int[] cardDataCommon = new int[] { cardList[0], cardList[1], cardList[2], cardList[3], cardList[4] };
-        int[] cardData1 = new int[] { cardList[5], cardList[6] };
-        int[] cardData2 = new int[] { cardList[7], cardList[8] };
+        cardDataCommon = new int[] { cardList[0], cardList[1], cardList[2], cardList[3], cardList[4] };
+        cardData1 = new int[] { cardList[5], cardList[6] };
+        cardData2 = new int[] { cardList[7], cardList[8] };
 
-        updateCardItem(cardItems1[0], cardData1[0]);
-        updateCardItem(cardItems1[1], cardData1[1]);
-        updateCardItem(cardItems2[0], cardData2[0]);
-        updateCardItem(cardItems2[1], cardData2[1]);
-        for (int i = 0; i < cardItemsCommon.Length; i++)
+        Debug.Log("===cardData1[0]:" + cardData1[0]);
+        Debug.Log("===cardData1[1]:" + cardData1[1]);
+        Debug.Log("===cardData2[0]:" + cardData2[0]);
+        Debug.Log("===cardData2[1]:" + cardData2[1]);
+       
+
+        //生成牌
+        instantiateCards();
+        StartCoroutine(ShowA());
+
+        
+    }
+
+    void instantiateCards()
+    {
+        GameObject cardObj = Resources.Load<GameObject>("prefabs/cardItem");
+        for (int i = 0; i < 9;i++)
         {
-            updateCardItem(cardItemsCommon[i], cardDataCommon[i]);
+            GameObject temp = Instantiate(cardObj);
+            if (i < 2)
+            {
+                temp.transform.SetParent(pos1);
+                temp.transform.GetComponent<CardItem>().CardNum = cardData1[i];
+            }else if (i < 4)
+            {
+                temp.transform.SetParent(pos2);
+                temp.transform.GetComponent<CardItem>().CardNum = cardData2[i-2];
+
+            }
+            else
+            {
+                temp.transform.SetParent(posCommon);
+                temp.transform.GetComponent<CardItem>().CardNum = cardDataCommon[i - 4];
+            }
+            _resetTransform(temp);
+            
+
+        }
+    }
+
+    void showCards()
+    {
+        for (int i = 0; i < pos1.childCount; i++)
+        {
+            GameObject chid = pos1.GetChild(i).gameObject;
+            CardItem cardItem = chid.transform.GetComponent<CardItem>();
+            updateCardItem(cardItem);
+        }
+        for (int i = 0; i < pos2.childCount; i++)
+        {
+            GameObject chid = pos2.GetChild(i).gameObject;
+            CardItem cardItem = chid.transform.GetComponent<CardItem>();
+            updateCardItem(cardItem);
+        }
+        for (int i = 0; i < posCommon.childCount; i++)
+        {
+            GameObject chid = posCommon.GetChild(i).gameObject;
+            CardItem cardItem = chid.transform.GetComponent<CardItem>();
+            updateCardItem(cardItem);
         }
 
 
         //牌型，谁赢了 
-        List<int> fiveCardData1= DZGameLogic.Instance.fiveFromSeven(new List<int>(cardData1), new List<int>(cardDataCommon));
+        List<int> fiveCardData1 = DZGameLogic.Instance.fiveFromSeven(new List<int>(cardData1), new List<int>(cardDataCommon));
         List<int> fiveCardData2 = DZGameLogic.Instance.fiveFromSeven(new List<int>(cardData2), new List<int>(cardDataCommon));
 
         CardType cardType1 = DZGameLogic.Instance.getCardType(fiveCardData1);
@@ -169,27 +229,35 @@ public class TestView : MonoBehaviour {
         if (winNum == 2)
         {
             textWhoWin.text = "PLAYER 1 WIN";
-        }else if (winNum == 1)
+        }
+        else if (winNum == 1)
         {
             textWhoWin.text = "PLAYER 2 WIN";
 
-        }else
+        }
+        else
         {
             textWhoWin.text = "Draw";
         }
     }
 
-    void updateCardItem(CardItem cardItem,int data)
+    void _resetTransform(GameObject obj)
     {
-        cardItem.CardNum = data;
-        Debug.Log("===nums[data % 16 - 1]:"+ nums[data % 16 - 1]);
+        obj.transform.localPosition = new Vector3(0,0,0); 
+        obj.transform.localRotation = Quaternion.identity;
+        obj.transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    void updateCardItem(CardItem cardItem)
+    {
+        int data = cardItem.CardNum;
         Sprite numSprire = nums[data % 16 - 1];
         int colorNum = DZGameLogic.Instance.getCardColor(data) / 16;
+        Debug.Log("==colorNum:" + colorNum);
         Sprite colorSprire = colors[colorNum];
-        Color color = (colorNum % 2 == 0 ? colorBlack : colorRed);
-        Debug.Log("==numSprire:" + numSprire);
+        Color color = (colorNum % 2 == 0 ? colorRed : colorBlack);
         cardItem.UpdateItem(numSprire, colorSprire, color);
     }
-    
+
 
 }

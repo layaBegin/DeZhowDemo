@@ -154,7 +154,6 @@ public class DZGameLogic
                     {
                         s += rangeTmp[k];
                     }
-                    Debug.Log("rangeTmp.ToString():" + s);
                     int index = s.IndexOf("0");
                     if (index == -1)
                     {
@@ -309,8 +308,6 @@ public class DZGameLogic
         CardType firstType = this.getCardType(firstDataArr);
         //类型判断
         //大
-        Debug.Log("firstType:" + firstType);
-        Debug.Log("nextType:" + nextType);
         if (firstType > nextType) return 2;
         //小
         if (firstType < nextType) return 1;
