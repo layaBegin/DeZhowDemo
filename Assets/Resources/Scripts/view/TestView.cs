@@ -40,6 +40,7 @@ public class TestView : MonoBehaviour {
     void Awake()
     {
         //this._setCardActice(false);
+        _resetText();
     }
     // Use this for initialization
     void Start() {
@@ -90,15 +91,24 @@ public class TestView : MonoBehaviour {
 
     void onBtnAgain()
     {
-        Debug.Log("===进入Btn回调");
+        _resetText();
         destroyCards();
-
-        //this._setCardActice(true);
-        DelayFunc();
-        //Invoke("DelayFunc", 1);
-        //StartCoroutine(ShowA());
+        _getCardData();
+        StartCoroutine(ShowA());
+       
     }
 
+    private IEnumerator ShowA()
+    {
+
+        yield return new WaitForSeconds(0.3f);
+        instantiateCards();
+        yield return new WaitForSeconds(0.3f);
+        _showCards();
+        yield return new WaitForSeconds(1f);
+        _updateText();
+
+    }
 
     void destroyCards()
     {
@@ -120,32 +130,8 @@ public class TestView : MonoBehaviour {
 
     }
 
-    private IEnumerator ShowA()
-    {
-        yield return null;
-        yield return new WaitForSeconds(0.5f);
-        showCards();
-    }
 
-
-    void _setCardActice(bool active)
-    {
-        cardItems1[0].transform.gameObject.SetActive(active);
-        cardItems1[1].transform.gameObject.SetActive(active);
-        cardItems2[0].transform.gameObject.SetActive(active);
-        cardItems2[1].transform.gameObject.SetActive(active);
-        cardItems1[0].transform.gameObject.SetActive(active);
-        for (int i = 0; i < cardItemsCommon.Length; i++)
-        {
-            cardItemsCommon[i].transform.gameObject.SetActive(active);
-        }
-    }
-
-
-
-    
-
-    void DelayFunc()
+    void _getCardData()
     {
         //this._setCardActice(true);
         int[] cardList = DZGameLogic.Instance.getRandCardList();
@@ -158,17 +144,11 @@ public class TestView : MonoBehaviour {
         Debug.Log("===cardData1[1]:" + cardData1[1]);
         Debug.Log("===cardData2[0]:" + cardData2[0]);
         Debug.Log("===cardData2[1]:" + cardData2[1]);
-       
-
-        //生成牌
-        instantiateCards();
-        StartCoroutine(ShowA());
-
-        
     }
 
     void instantiateCards()
     {
+        
         GameObject cardObj = Resources.Load<GameObject>("prefabs/cardItem");
         for (int i = 0; i < 9;i++)
         {
@@ -192,9 +172,11 @@ public class TestView : MonoBehaviour {
             
 
         }
+
+        //_showCards();
     }
 
-    void showCards()
+    void _showCards()
     {
         for (int i = 0; i < pos1.childCount; i++)
         {
@@ -215,7 +197,10 @@ public class TestView : MonoBehaviour {
             updateCardItem(cardItem);
         }
 
+    }
 
+    void _updateText()
+    {
         //牌型，谁赢了 
         List<int> fiveCardData1 = DZGameLogic.Instance.fiveFromSeven(new List<int>(cardData1), new List<int>(cardDataCommon));
         List<int> fiveCardData2 = DZGameLogic.Instance.fiveFromSeven(new List<int>(cardData2), new List<int>(cardDataCommon));
@@ -241,12 +226,21 @@ public class TestView : MonoBehaviour {
         }
     }
 
+    void _resetText()
+    {
+        textWhoWin.text = "";
+        text1Type.text = "";
+        text2Type.text = "";
+    }
+
     void _resetTransform(GameObject obj)
     {
         obj.transform.localPosition = new Vector3(0,0,0); 
         obj.transform.localRotation = Quaternion.identity;
         obj.transform.localScale = new Vector3(1, 1, 1);
     }
+
+   
 
     void updateCardItem(CardItem cardItem)
     {
@@ -257,6 +251,8 @@ public class TestView : MonoBehaviour {
         Sprite colorSprire = colors[colorNum];
         Color color = (colorNum % 2 == 0 ? colorRed : colorBlack);
         cardItem.UpdateItem(numSprire, colorSprire, color);
+
+        
     }
 
 

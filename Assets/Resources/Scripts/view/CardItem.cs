@@ -14,14 +14,19 @@ public class CardItem : MonoBehaviour {
     object[] spriteNums;
     object[] spriteColors;
 
+    Animator anim;
 
-    
+
     void Awake()
     {
 
         //spriteNums = Resources.LoadAll("Images/Num");
-        imageNum = transform.Find("num").GetComponent<Image>();
-        imageColor = transform.Find("color").GetComponent<Image>();
+        imageNum = transform.Find("face/num").GetComponent<Image>();
+        imageColor = transform.Find("face/color").GetComponent<Image>();
+
+        anim = transform.GetComponent<Animator>();
+        anim.enabled = false;
+        anim.StopPlayback();
 
     }
     void Start () {
@@ -56,7 +61,9 @@ public class CardItem : MonoBehaviour {
         imageColor.sprite = spriteColor;
         imageNum.color = color;
         imageColor.color = color;
-        this.transform.Find("back").gameObject.SetActive(false);
-        
+        //this.transform.Find("back").gameObject.SetActive(false);
+        anim.enabled = true;
+        anim.Play("TestAnimation");
+
     }
 }
